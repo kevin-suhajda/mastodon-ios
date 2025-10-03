@@ -15,11 +15,11 @@ workflows:
         xcode: 26
         cocoapods: default
       scripts:
-        - name : Install SwiftGen & Sourcery
-          script: |
-            brew install swiftgen
-            brew install sourcery
-            bundle install
+        # - name : Install SwiftGen & Sourcery
+        #   script: |
+        #     brew install swiftgen
+        #     brew install sourcery
+        #     bundle install
         - name: Set up code signing settings on Xcode project
           script: |
             xcode-project use-profiles
