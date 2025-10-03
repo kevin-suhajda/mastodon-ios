@@ -34,11 +34,14 @@ workflows:
             -resolvePackageDependencies
         - name: Build ipa for distribution
           script: |
-            # xcodebuild -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME" -resolvePackageDependencies
-            xcode-project build-ipa --project "$XCODE_PROJECT" --scheme "$XCODE_SCHEME"
+            xcode-project build-ipa \
+              --project "${XCODE_SCHEME}.xcproject" \
+              --scheme "${XCODE_SCHEME}" \
+              --archive-xcargs "COMPILATION_CACHE_ENABLE_CACHING=True"
       cache:
         cache_paths:
         - $CM_BUILD_DIR/spm-cache
+        - $HOME/Library/Developer/Xcode/DerivedData/CompilationCache.noindex
       artifacts:
         - build/ios/ipa/*.ipa
         - /tmp/xcodebuild_logs/*.log
