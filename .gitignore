@@ -101,6 +101,7 @@ iOSInjectionProject/
 Packages
 xcuserdata
 *.xcodeproj
+!Mastodon.xcodeproj
 
 
 ### Xcode ###
